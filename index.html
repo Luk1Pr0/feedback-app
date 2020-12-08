@@ -9,24 +9,46 @@
 </head>
 
 <body>
-    <section>
-        <div class="header-container">
-            <div class="header-container">
-                <h1>Feedback App</h1>
-            </div>
+    <!-- Header container for logo and navigation -->
+    <header>
+        <!-- Logo container -->
+        <div class="logo-container">
+            <a href="#">
+                <h1><span class="logo color1">Feedback</span><span class="logo color2">App</span></h1>
+            </a>
         </div>
-        <div class="items-container">
-            <div class="register-container">
-                <div class="input-container">
+        <!-- Navigation container -->
+        <nav>
+            <ul>
+                <li><a href="#">Sign in</a></li>
+                <li><a href="#">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Section for the app containers -->
+    <section>
+        <!-- App container for all pages -->
+        <div class="app-container">
+            <!-- Signin container page -->
+            <div class="signin-container">
+                <!-- Title container for the signin page -->
+                <div class="title-container">
                     <h2>Sign In</h2>
-                    <form id="log-in-form">
-                        <label for="email">Email address</label>
-                        <input type="text" id="email" placeholder="Enter your email address">
-                        <label for="password">Password</label>
-                        <input type="text" id="password" placeholder="Enter your password">
+                </div>
+                <hr>
+                <!-- Sign in form container -->
+                <div class="form-container signin">
+                    <!-- Sign in form -->
+                    <form>
+                        <label for="signin-email">Email:</label>
+                        <input type="email" id="signin-email">
+                        <label for="singin-password">Password:</label>
+                        <input type="password" id="singin-password">
                     </form>
-                    <div class="button-container">
-                        <button type="submit" id="submit-button">Log in</button>
+                    <!-- Submit button for signin form -->
+                    <div class="signin-btn-container">
+                        <button type="submit" id="signin-submit-btn">Sign in</button>
                     </div>
                 </div>
             </div>
