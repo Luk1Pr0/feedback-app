@@ -23,7 +23,7 @@ body {
     display: flex;
     flex-direction: column;
     color: rgb(255, 255, 255);
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 /* Header styling */
@@ -93,6 +93,7 @@ section {
 }
 
 .app-container {
+    position: relative;
     overflow: auto;
     width: 70%;
     min-height: 95%;
@@ -101,11 +102,12 @@ section {
     align-items: center;
 }
 
-.signin-container {
-    box-shadow: 0 5px 20px 1px rgba(0, 0, 0, 0.2);
-    background: rgba(10, 165, 255, 0.5);
+.user-form-container {
+    box-shadow: 0 5px 10px 1px rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.3);
     border-radius: 15px;
-    width: 40%;
+    min-width: 40%;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -113,15 +115,20 @@ section {
     padding: 2rem;
 }
 
-/* App title styling */
+.hidden {
+    display: none;
+}
+
+/* Current container title styling */
 h2 {
     padding: 0;
     margin: 0;
     font-size: 2rem;
     color: rgb(255, 255, 0);
+    text-transform: uppercase;
 }
 
-/* HR divider styling */
+/* HR divider line styling */
 hr {
     margin: 1rem 0 2rem 0;
     width: 100%;
@@ -165,18 +172,32 @@ input:focus {
     border-bottom: 2px solid rgb(255, 255, 0);
 }
 
-.signin-btn-container {
+.btn-container {
     width: 100%;
     text-align: center;
 }
 
+/* Button styling */
 button {
     outline: none;
     background: transparent;
-    border: 2px solid white;
+    border: 2px solid rgb(255, 255, 255);
     padding: 5px 10px;
     color: rgb(255, 255, 255);
     font-weight: 600;
     font-size: 1rem;
     cursor: pointer;
+    transition: all 0.1s ease;
+    transform: scale(1);
+    text-transform: uppercase;
+}
+
+button:hover {
+    border: 2px solid rgb(255, 255, 0);
+    color: rgb(255, 255, 0);
+    /* transform: scale(1.1); */
+}
+
+button:active {
+    transform: scale(0.8);
 }
