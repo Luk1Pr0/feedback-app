@@ -40,7 +40,7 @@
                 <!-- Sign in form container -->
                 <div class="form-container">
                     <!-- Sign in form -->
-                    <form>
+                    <form id="signin-form">
                         <label for="signin-email">Email:</label>
                         <input type="email" id="signin-email" title="Please enter a valid email address"
                             placeholder="Enter your email" required>
@@ -50,12 +50,12 @@
                             title="Minimum 8 characters, 1 uppercase, 1 number and 1 special character required"
                             placeholder="Enter your password" required>
                         <div class="info-box hidden">
-                            <p></p>
+                            <p>--</p>
                         </div>
                         <!-- Submit button for signin form -->
-                        <!-- <div class="btn-container"> -->
-                        <button type="submit" id="signin-submit-btn">Sign in</button>
-                        <!-- </div> -->
+                        <div class="btn-container">
+                            <button type="submit">Sign in</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -69,7 +69,7 @@
                 <!-- Register form container -->
                 <div class="form-container">
                     <!-- Register form -->
-                    <form>
+                    <form id="register-form">
                         <label for="register-name">Full name:</label>
                         <input type="text" id="register-name" title="Enter your full name"
                             placeholder="Enter your full name" required>
@@ -86,7 +86,7 @@
                             pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
                             title="Confirm your password" placeholder="Confirm your password" required>
                         <div class="info-box hidden">
-                            <p></p>
+                            <p>--</p>
                         </div>
                         <!-- Submit button for register form -->
                         <div class="btn-container">
