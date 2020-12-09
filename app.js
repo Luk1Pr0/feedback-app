@@ -13,6 +13,7 @@ const infoBox1 = document.querySelectorAll(".info-box")[0];
 const infoBox2 = document.querySelectorAll(".info-box")[1];
 
 let allUsers = [];
+let pageSwitchDelay;
 
 function togglePageShown(page) {
     if (page === "signin") {
@@ -71,27 +72,22 @@ function getRegisterValues(e) {
         newUser.email = emailInput;
         newUser.password = passwordInput;
         allUsers.push(newUser);
+        // Update local storage with the allUsers array
         saveUsersToLocalStorage();
-        test(0);
+        clearInputFields(0);
+        // Switch to the signin page after successful registration
+        setTimeout(togglePageShown, 2000, "signin");
     } else {
         infoBox2.textContent = "Make sure both passwords match";
         infoBox2.style.border = "2px solid red";
         infoBox2.classList.remove("hidden");
-        test(4);
+        clearInputFields(4);
     }
 }
 
-// Function that will run to clear the input fields after form submissions
-function clearInputFields() {
-    formInputs.forEach(input => {
-        input.value = "";
-    });
-}
-
 // Delete passwords values or all input values, depending on if the user enetered both passwords correctly
-function test(index) {
+function clearInputFields(index) {
     for (let i = index; i < formInputs.length; i++) {
-        console.log(formInputs[i]);
         formInputs[i].value = "";
     }
 }
