@@ -1,7 +1,7 @@
 // Navigation buttons
 const signinBtn = document.querySelectorAll(".nav-link")[0];
 const registerBtn = document.querySelectorAll(".nav-link")[1];
-const logoutBtn = document.querySelectorAll(".nav-link")[2];
+const logoutBtn = document.querySelector(".logout-btn");
 // Sign in and register pages
 const signinPage = document.getElementById("signin-page");
 const registerPage = document.getElementById("register-page");
@@ -18,7 +18,10 @@ let allUsers = [];
 
 function logoutUser() {
     contentPage.classList.add("hidden");
-    signinPage.classList.remove("hidden");
+    logoutBtn.classList.add("hidden");
+    registerBtn.classList.remove("hidden");
+    signinBtn.classList.remove("hidden");
+    togglePageShown("signin");
 }
 
 // Display the content page after succesfull log in
@@ -26,8 +29,8 @@ function displayContentPage() {
     contentPage.classList.remove("hidden");
     signinPage.classList.add("hidden");
     registerPage.classList.add("hidden");
-    signinBtn.style.display = "none";
-    registerBtn.style.display = "none";
+    signinBtn.classList.add("hidden")
+    registerBtn.classList.add("hidden")
     logoutBtn.classList.remove("hidden");
 }
 

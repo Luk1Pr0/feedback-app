@@ -90,6 +90,11 @@ li {
     font-weight: 700;
 }
 
+.logout-btn {
+    width: 50%;
+    text-align: center;
+}
+
 /* Section styling */
 section {
     position: relative;
@@ -128,7 +133,6 @@ section {
 
 .hidden {
     display: none;
-    animation: fadeOut 1s;
 }
 
 /* Current container title styling */
