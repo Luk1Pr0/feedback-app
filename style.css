@@ -23,7 +23,7 @@ body {
     display: flex;
     flex-direction: column;
     color: rgb(255, 255, 255);
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 /* Header styling */
@@ -57,7 +57,6 @@ header {
     background: rgb(255, 0, 0);
     color: rgb(255, 255, 255);
     padding: 0 5px;
-
 }
 
 /* Navigation styling */
@@ -79,12 +78,20 @@ li {
     padding: 1rem 2rem;
 }
 
+/* Active class toggled in javascript */
+.active {
+    color: rgb(255, 255, 0);
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
 /* Section styling */
 section {
-    position: absolute;
+    position: relative;
     z-index: 1;
+    background: red;
     width: 100%;
-    height: 100vh;
+    min-height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -93,10 +100,8 @@ section {
 }
 
 .app-container {
-    position: relative;
-    overflow: auto;
     width: 70%;
-    min-height: 95%;
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -113,10 +118,12 @@ section {
     justify-content: center;
     align-items: center;
     padding: 2rem;
+    animation: fadeIn 1s;
 }
 
 .hidden {
     display: none;
+    animation: fadeOut 1s;
 }
 
 /* Current container title styling */
@@ -147,7 +154,7 @@ hr {
 }
 
 form {
-    width: 60%;
+    width: 90%;
     display: flex;
     flex-direction: column;
 }
@@ -168,8 +175,30 @@ input {
     font-weight: 200;
 }
 
+#confirm-password {
+    margin: 0;
+}
+
 input:focus {
     border-bottom: 2px solid rgb(255, 255, 0);
+}
+
+input::placeholder {
+    color: rgb(0, 0, 0);
+}
+
+.info-box {
+    width: 100%;
+    font-size: 1rem;
+    border: 2px solid red;
+    padding: 1rem 0;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+p {
+    padding: 0;
+    margin: 0;
 }
 
 .btn-container {
@@ -183,6 +212,7 @@ button {
     background: transparent;
     border: 2px solid rgb(255, 255, 255);
     padding: 5px 10px;
+    margin-top: 2rem;
     color: rgb(255, 255, 255);
     font-weight: 600;
     font-size: 1rem;
@@ -200,4 +230,16 @@ button:hover {
 
 button:active {
     transform: scale(0.8);
+}
+ 
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(1.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }

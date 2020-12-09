@@ -20,8 +20,8 @@
         <!-- Navigation container -->
         <nav>
             <ul>
-                <li><a href="#">Sign in</a></li>
-                <li><a href="#">Register</a></li>
+                <li><a class="nav-link" href="#">Sign in</a></li>
+                <li><a class="nav-link" href="#">Register</a></li>
             </ul>
         </nav>
     </header>
@@ -31,7 +31,7 @@
         <!-- App container for all pages -->
         <div class="app-container">
             <!-- Signin container page -->
-            <div class="user-form-container">
+            <div class="user-form-container" id="signin-page">
                 <!-- Title container for the signin page -->
                 <div class="title-container">
                     <h2>Sign In</h2>
@@ -42,18 +42,25 @@
                     <!-- Sign in form -->
                     <form>
                         <label for="signin-email">Email:</label>
-                        <input type="email" id="signin-email">
+                        <input type="email" id="signin-email" title="Please enter a valid email address"
+                            placeholder="Enter your email" required>
                         <label for="signin-password">Password:</label>
-                        <input type="password" id="signin-password">
-                    </form>
-                    <!-- Submit button for signin form -->
-                    <div class="btn-container">
+                        <input type="text" id="signin-password"
+                            pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
+                            title="Minimum 8 characters, 1 uppercase, 1 number and 1 special character required"
+                            placeholder="Enter your password" required>
+                        <div class="info-box hidden">
+                            <p></p>
+                        </div>
+                        <!-- Submit button for signin form -->
+                        <!-- <div class="btn-container"> -->
                         <button type="submit" id="signin-submit-btn">Sign in</button>
-                    </div>
+                        <!-- </div> -->
+                    </form>
                 </div>
             </div>
             <!-- Register container page -->
-            <div class="user-form-container hidden">
+            <div class="user-form-container hidden" id="register-page">
                 <!-- Title container for the register page -->
                 <div class="title-container">
                     <h2>Register now</h2>
@@ -64,22 +71,33 @@
                     <!-- Register form -->
                     <form>
                         <label for="register-name">Full name:</label>
-                        <input type="text" id="register-name">
+                        <input type="text" id="register-name" title="Enter your full name"
+                            placeholder="Enter your full name" required>
                         <label for="register-email">Email:</label>
-                        <input type="email" id="register-email">
+                        <input type="email" id="register-email" title="Please enter a valid email address"
+                            placeholder="Enter your email address" required>
                         <label for="register-password">Password:</label>
-                        <input type="password" id="register-password">
+                        <input type="text" id="register-password"
+                            pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
+                            title="Minimum 8 characters, 1 uppercase, 1 number and 1 special character required"
+                            placeholder="Enter your password" required>
                         <label for="confirm-password">Confirm password:</label>
-                        <input type="password" id="confirm-password">
+                        <input type="text" id="confirm-password"
+                            pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
+                            title="Confirm your password" placeholder="Confirm your password" required>
+                        <div class="info-box hidden">
+                            <p></p>
+                        </div>
+                        <!-- Submit button for register form -->
+                        <div class="btn-container">
+                            <button type="submit" id="register-submit-btn">Register</button>
+                        </div>
                     </form>
-                    <!-- Submit button for register form -->
-                    <div class="btn-container">
-                        <button type="submit" id="register-submit-btn">Register</button>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
+    <script src="app.js"></script>
 </body>
 
 </html>
