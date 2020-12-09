@@ -1,9 +1,11 @@
 // Navigation buttons
 const signinBtn = document.querySelectorAll(".nav-link")[0];
 const registerBtn = document.querySelectorAll(".nav-link")[1];
+const logoutBtn = document.querySelectorAll(".nav-link")[2];
 // Sign in and register pages
 const signinPage = document.getElementById("signin-page");
 const registerPage = document.getElementById("register-page");
+const contentPage = document.querySelector(".content-container");
 // Sign in and register forms
 const signinForm = document.getElementById("signin-form");
 const registerForm = document.getElementById("register-form");
@@ -13,7 +15,21 @@ const infoBox1 = document.querySelectorAll(".info-box")[0];
 const infoBox2 = document.querySelectorAll(".info-box")[1];
 
 let allUsers = [];
-let pageSwitchDelay;
+
+function logoutUser() {
+    contentPage.classList.add("hidden");
+    signinPage.classList.remove("hidden");
+}
+
+// Display the content page after succesfull log in
+function displayContentPage() {
+    contentPage.classList.remove("hidden");
+    signinPage.classList.add("hidden");
+    registerPage.classList.add("hidden");
+    signinBtn.style.display = "none";
+    registerBtn.style.display = "none";
+    logoutBtn.classList.remove("hidden");
+}
 
 function togglePageShown(page) {
     if (page === "signin") {
@@ -44,13 +60,14 @@ function getSigninValues(e) {
     });
     // If email and password in allUsers array matches the email and password input, then log in
     if (userEmail === emailInput && userPassword === passwordInput) {
-        console.log("Logged in");
         infoBox1.classList.add("hidden");
+        clearInputFields();
+        displayContentPage();
     } else {
-        console.log("NOT LOGGED IN");
         infoBox1.textContent = "Incorrect email or password";
         infoBox1.style.border = "2px solid red";
         infoBox1.classList.remove("hidden");
+        clearInputFields(1);
     }
 }
 
@@ -86,7 +103,7 @@ function getRegisterValues(e) {
 }
 
 // Delete passwords values or all input values, depending on if the user enetered both passwords correctly
-function clearInputFields(index) {
+function clearInputFields(index = 0) {
     for (let i = index; i < formInputs.length; i++) {
         formInputs[i].value = "";
     }
@@ -109,6 +126,7 @@ signinBtn.addEventListener("click", () => togglePageShown("signin"));
 registerBtn.addEventListener("click", () => togglePageShown("register"));
 signinForm.addEventListener("submit", getSigninValues);
 registerForm.addEventListener("submit", getRegisterValues);
+logoutBtn.addEventListener("click", logoutUser);
 
 // Run function on page load
 togglePageShown("signin");
