@@ -281,7 +281,7 @@ button:active {
 
 @media screen and (max-width: 700px) {
     body {
-        overflow: hidden;
+        overflow: hidden auto;
     }
 
     .logo-container {
